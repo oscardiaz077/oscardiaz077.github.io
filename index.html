@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examen Policia</title>
+    <title>Examen Policía</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <h1>Examen Policia</h1>
+        <h1>Examen Policía</h1>
         <label for="tema">Seleccionar tema:</label>
         <select id="tema">
             <option value="todos">Todos</option>
-            <option value="falladas">Preguntas falladas</option>
-            <option value="tema 32">tema 32</option>
-            <option value="tema 11">tema 11</option>
+            <option value="falladas">Falladas</option>
+            <option value="tema_32">tema 32</option>
+            <option value="tema_11">tema 11</option>
             <!-- Añade más opciones de tema aquí -->
         </select>
-        <button onclick="startQuiz()">Iniciar Examen</button>
+        <input type="file" id="file-input" />
+        <button onclick="loadQuestionsFromExcel()">Iniciar Examen</button>
         <div id="question-container" style="display: none;">
-            <h2 id="question-text"></h2>
+            <div id="question-text"></div>
             <div id="options"></div>
-            <div id="timer">Tiempo restante: <span id="time"></span> segundos</div>
+            <div id="feedback"></div>
             <button id="next-button" style="display: none;" onclick="nextQuestion()">Siguiente</button>
         </div>
         <div id="result" style="display: none;">
-            <h2 id="score"></h2>
-            <button id="retry-button" style="display: none;" onclick="retryIncorrectQuestions()">Reintentar Preguntas Incorrectas</button>
+            <div id="score"></div>
+            <button id="retry-button" style="display: none;" onclick="retryIncorrectQuestions()">Reintentar preguntas incorrectas</button>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
-
